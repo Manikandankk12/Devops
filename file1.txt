@@ -1,2 +1,21 @@
-admin apple orange
-newly edited
+[Unit]
+Description=Python Application Service
+After=network.target
+
+[Service]
+# Run as your user
+User=administrator
+Group=administrator
+
+# Path to your Python app
+ExecStart=/usr/bin/python3 /home/administrator/my-html-app/app.py
+
+# Restart policy
+Restart=always
+RestartSec=5
+
+# Working directory
+WorkingDirectory=/home/administrator/my-html-app
+
+[Install]
+WantedBy=multi-user.target
